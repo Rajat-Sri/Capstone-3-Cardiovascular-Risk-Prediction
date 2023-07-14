@@ -1,52 +1,34 @@
 # Capstone-3-Cardiovascular-Risk-Prediction
 
-**Busines problem** - We have been provided dataset with the goal of creating a classification model to predict whether the patient has a 10-year risk of future coronary heart disease (CHD) or not.
+## Problem Statement: 
+In this project on cardiovascular risk prediction, our main goal was to create a classification model to predict whether a patient has a 10-year risk of future coronary heart disease (CHD) or not. We worked with a dataset, which provided information on various patient attributes that could potentially be risk factors for cardiovascular disease.
 
-**Data Wrangling** -  It is the process of transforming and mapping data from one raw data form into desired format to make it more appropriate and valuable for our analytics. The goal of data wrangling is to assure quality and useful data.
+## Data Wrangling:
+To prepare the data for analysis, we performed data wrangling tasks such as handling missing values and duplicate values. We replaced missing values with median values since the percentage of missing data was less than 10% and it would not significantly affect the data skewness. We also corrected the data types of variables to ensure consistency.
 
-We will perform some basic data cleaning like removing null values and duplicates.
+## Exploratory Data Analysis (EDA):
+We conducted an exploratory analysis of the dataset to gain insights and understand the relationships between variables. We examined the distributions of risk factors like glucose levels, cholesterol levels, body mass index (BMI), and heart rate. This helped us understand the data and identify patterns.
 
-**Data Analysis and Visualization**
+## Feature Engineering: 
+For feature engineering, we used correlation coefficient analysis to select the most important features. We found that variables like smoking and cigarettes per day were highly correlated, so we removed smoking as it could be derived from the cigarettes per day variable. We also created a new variable called "hypertension" to address the high correlation between systolic and diastolic blood pressure. Additionally, we removed irrelevant or highly correlated features from the dataset.
 
-**Objective** - We are trying to find how other facorts are influencing the chances of getting affected by coronary heart diseases in next 10 years.
+## Handling Imbalanced Data,Data Scaling and Data Splitting: 
+To address the imbalance in the dataset, where only around 15% of patients had coronary heart disease, we used oversampling techniques like SMOTE (Synthetic Minority Oversampling Technique) to create synthetic data points for the minority class. We also used the Standard Scaler method to scale the data, ensuring that all features had a mean close to 0 and a standard deviation of approximately 1. And finally we splitted the data into a training set (80%) and a testing set (20%) to evaluate the performance of our models.
 
-**Analysis Insights**
-- Count of people with risk of coronary heart disease in next 10 years is 511 which makes 15% of the total dataset.
-- Ratio of men prone to coronary heart disese is higher compared to women.
-- Percentage of men who are smokers is comparetevely higher than women.
-- There is 4% higher chance of getting infected by coronary diseases if a person is a smoker.
-- Quantity of smoking is certainly directly related to coronary heart disese.
-- Poor BMI ratio is directly affecting heath of patience.
-- It is notable here that patients with high sugar levels are more prone to coronary heart diseases.
-- Around 40% of people who have sugar have some type of coronary heart diseases.
-- Chance of getting some kind of coronary heart disease increases by 23% if a patient is diabetic.
-- Around 50% of patients already suffered heart stroke are affected by colonary hear diseases
-- Chance of getting some kind of coronary heart disease increases by 31% if a patient has suffered a heart stroke.
-- Normal high side of blood pressure in around 120mm Hg,and we can clearly see patients having blood pressure over this range have got heart stroke.
-- Patients who have high blood pressure suffer from hypertension.
-- Around 23% of patients have some kind of coronary heart disease who are suffering from hypertension.
-- Chance of getting some kind of coronary heart disease increases by 12% if a patient has hypertension.
-- Bp medicines are not affective in preventing coronary heart diseases.
-- Chance of getting some kind of coronary heart disease increases by 19% if a patient is already taking bp meds.
+## Model Implementation: 
+We experimented with different machine learning algorithms to build our predictive models. This included algorithms such as Logistic Regression, Random Forest, and XG Boost Classification. These models were trained on the training data and used to make predictions on the testing data.
 
-**Feature Engineering & Data Pre-processing**
+## Hyperparameter Tuning: 
+Each machine learning algorithm has various hyperparameters that control its behavior. We used techniques like GridSearchCV and random search to find the optimal combination of hyperparameter values for each model. This involved trying different values and evaluating the model's performance using appropriate evaluation metrics.
 
-- Handling missing values
-- Feature manipulation and selection
-- Handling outliers
-- Categorical Encoding
-- Handling imbalance
-- Data Transformation
-- Data Splitting
-- Data Scaling
-- Dimentionality Reduction
+## Evaluation Metrics:
+When evaluating the models, we considered evaluation metrics that were appropriate for imbalanced datasets, such as the F1 score, which balances precision and recall. We selected the XG Boost Classification model as the final prediction model due to its highest F1 score and lower overfitting compared to other models.
 
-**ML Model Implementation,cross validation and hyperparameter tuning**
- - Model 1 - Logistic Regression
- - Model 2 - Random Forest
- - Model 3 - XG Boost Classifier
+## Final Model Selection:
+Based on the evaluation metrics and considering factors like model performance, interpretability, and generalization ability, we selected the XG Boost Classification model as our final prediction model. This model demonstrated the best overall performance in terms of the chosen evaluation metrics.
 
-**Conclusion**
-- If we want to completely avoid any situations where the patient has heart disease, a high recall is desired. Whereas if we want to avoid treating a patient with no heart diseases a high precision is desired.
-- As both evaluation metrics are equally important,we are looking at both F1 score (conveys the balance between the precision and the recall) and False Negatives(recall) for our predictions.
-- Both random forest and XG Boost models were performing well,but as random forest model was overfitting data, we have choosen XG Boost classification for our final model building.
+## Model Explainability: 
+We analyzed the importance of different features in the XG Boost model to understand their contribution to the predictions. This was done using techniques like permutation importance or SHAP values, which provide insights into which features are most influential in determining the risk of CHD.
+
+## Conclusion:
+In conclusion, the project aimed to predict the risk of coronary heart disease in patients using machine learning techniques. By effectively handling missing values, conducting exploratory analysis, performing feature engineering, addressing class imbalance, and selecting appropriate evaluation metrics, we were able to build a reliable prediction model. The selected XG Boost Classification model showed promising results and provided insights into the important risk factors for CHD.
