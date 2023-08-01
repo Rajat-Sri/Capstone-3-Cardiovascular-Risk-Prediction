@@ -3,8 +3,19 @@
 ## Problem Statement: 
 In this project on cardiovascular risk prediction, our main goal was to create a classification model to predict whether a patient has a 10-year risk of future coronary heart disease (CHD) or not. We worked with a dataset, which provided information on various patient attributes that could potentially be risk factors for cardiovascular disease.
 
+## File Information
+File Description: The dataset contains information related to cardiovascular risk factors, including age, gender, blood pressure, cholesterol levels, and more. The data was collected from Almabetter, and it is in CSV format.
+
+File Location: The dataset file is located at the following path within the project directory: /content/drive/MyDrive/Almabetter/Capstone Projects/Capstone 3/data_cardiovascular_risk.csv
+
+Data Loading: To load the dataset into your Python script, you can use the following code:
+
+import pandas as pd
+
+dataset = pd.read_csv('/content/drive/MyDrive/Almabetter/Capstone Projects/Capstone 3/data_cardiovascular_risk.csv')
+
 ## Data Wrangling:
-To prepare the data for analysis, we performed data wrangling tasks such as handling missing values and duplicate values. We replaced missing values with median values since the percentage of missing data was less than 10% and it would not significantly affect the data skewness. We also corrected the data types of variables to ensure consistency.
+To prepare the data for analysis, we performed data-wrangling tasks such as handling missing values and duplicate values. We replaced missing values with median values since the percentage of missing data was less than 10% and it would not significantly affect the data skewness. We also corrected the data types of variables to ensure consistency.
 
 ## Exploratory Data Analysis (EDA):
 We conducted an exploratory analysis of the dataset to gain insights and understand the relationships between variables. We examined the distributions of risk factors like glucose levels, cholesterol levels, body mass index (BMI), and heart rate. This helped us understand the data and identify patterns.
@@ -12,8 +23,8 @@ We conducted an exploratory analysis of the dataset to gain insights and underst
 ## Feature Engineering: 
 For feature engineering, we used correlation coefficient analysis to select the most important features. We found that variables like smoking and cigarettes per day were highly correlated, so we removed smoking as it could be derived from the cigarettes per day variable. We also created a new variable called "hypertension" to address the high correlation between systolic and diastolic blood pressure. Additionally, we removed irrelevant or highly correlated features from the dataset.
 
-## Handling Imbalanced Data,Data Scaling and Data Splitting: 
-To address the imbalance in the dataset, where only around 15% of patients had coronary heart disease, we used oversampling techniques like SMOTE (Synthetic Minority Oversampling Technique) to create synthetic data points for the minority class. We also used the Standard Scaler method to scale the data, ensuring that all features had a mean close to 0 and a standard deviation of approximately 1. And finally we splitted the data into a training set (80%) and a testing set (20%) to evaluate the performance of our models.
+## Handling Imbalanced Data, Data Scaling, and Data Splitting: 
+To address the imbalance in the dataset, where only around 15% of patients had coronary heart disease, we used oversampling techniques like SMOTE (Synthetic Minority Oversampling Technique) to create synthetic data points for the minority class. We also used the Standard Scaler method to scale the data, ensuring that all features had a mean close to 0 and a standard deviation of approximately 1. And finally, we split the data into a training set (80%) and a testing set (20%) to evaluate the performance of our models.
 
 ## Model Implementation: 
 We experimented with different machine learning algorithms to build our predictive models. This included algorithms such as Logistic Regression, Random Forest, and XG Boost Classification. These models were trained on the training data and used to make predictions on the testing data.
